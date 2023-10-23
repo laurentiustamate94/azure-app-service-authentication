@@ -15,6 +15,7 @@
 	</ItemGroup>
 
 	<PropertyGroup>
+		<IsPackable>false</IsPackable>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
