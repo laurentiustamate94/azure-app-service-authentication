@@ -1,9 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<!-- Enabling reproducible builds -->
+	<ItemGroup>
+		<PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyProjectReferencesToPackage</TargetsForTfmSpecificContentInPackage>
+		<EnablePackageValidation>true</EnablePackageValidation>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<!-- Optional: Detect breaking changes from a previous version -->
+		<!-- <PackageValidationBaselineVersion>1.0.0</PackageValidationBaselineVersion> -->
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -23,7 +40,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Laurentiu.Azure.AppService.EasyAuth\Laurentiu.Azure.AppService.EasyAuth.csproj" />
+		<ProjectReference Include="..\Laurentiu.Azure.AppService.EasyAuth\Laurentiu.Azure.AppService.EasyAuth.csproj">
+			<ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+			<IncludeAssets>Laurentiu.Azure.AppService.EasyAuth.dll</IncludeAssets>
+		</ProjectReference>
 	</ItemGroup>
+
+	<Target Name="CopyProjectReferencesToPackage">
+		<ItemGroup>
+			<TfmSpecificPackageFile Include="$(OutputPath)Laurentiu.Azure.AppService.EasyAuth.dll">
+				<PackagePath>lib/$(TargetFramework)</PackagePath>
+			</TfmSpecificPackageFile>
+			<TfmSpecificPackageFile Include="$(OutputPath)Laurentiu.Azure.AppService.EasyAuth.xml">
+				<PackagePath>lib/$(TargetFramework)</PackagePath>
+			</TfmSpecificPackageFile>
+		</ItemGroup>
+	</Target>
 
 </Project>
