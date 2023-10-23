@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Laurentiu Stamate</Authors>
+		<Title>Laurentiu.Azure.AppService.EasyAuth.WebAssembly</Title>
+		<PackageTags>azure;appservice;easyauth</PackageTags>
+		<PackageProjectUrl>https://github.com/laurentiustamate94/azure-app-service-authentication</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/laurentiustamate94/azure-app-service-authentication</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryBranch>main</RepositoryBranch>
+		<Description>This is a .NET 7 implementation of Azure AppService EasyAuth for people wanting to run it Blazor apps</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Laurentiu.Azure.AppService.EasyAuth\Laurentiu.Azure.AppService.EasyAuth.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+</Project>
