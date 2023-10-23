@@ -14,4 +14,5 @@ This is a .NET 7 implementation of [Azure AppService EasyAuth](https://learn.mic
 - https://github.com/AaronPowellDemos/BlazorServerlessApp
 - https://github.com/dotnet/aspnetcore/blob/main/src/Components/WebAssembly/WebAssembly.Authentication/src/RemoteAuthenticatorViewCore.cs
 - https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth
+- https://www.meziantou.net/publishing-a-nuget-package-following-best-practices-using-github.htm
 
