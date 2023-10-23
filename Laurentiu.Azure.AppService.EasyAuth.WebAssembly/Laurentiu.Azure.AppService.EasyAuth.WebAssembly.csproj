@@ -32,6 +32,8 @@
 		<PackageTags>azure;appservice;easyauth</PackageTags>
 		<PackageProjectUrl>https://github.com/laurentiustamate94/azure-app-service-authentication</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/laurentiustamate94/azure-app-service-authentication</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryBranch>main</RepositoryBranch>
@@ -51,6 +53,8 @@
 			<ReferenceOutputAssembly>true</ReferenceOutputAssembly>
 			<IncludeAssets>Laurentiu.Azure.AppService.EasyAuth.dll</IncludeAssets>
 		</ProjectReference>
+		<None Include="..\images\icon.png" Pack="True" PackagePath="" />
+		<None Include="..\README.md" Pack="True" PackagePath="" />
 	</ItemGroup>
 
 	<Target Name="CopyProjectReferencesToPackage">
