@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<PropertyGroup>
-		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CopyProjectReferencesToPackage</TargetsForTfmSpecificContentInPackage>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
 		<EnablePackageValidation>true</EnablePackageValidation>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<!-- Optional: Detect breaking changes from a previous version -->
@@ -49,22 +49,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Laurentiu.Azure.AppService.EasyAuth\Laurentiu.Azure.AppService.EasyAuth.csproj">
-			<ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-			<IncludeAssets>Laurentiu.Azure.AppService.EasyAuth.dll</IncludeAssets>
-		</ProjectReference>
-		<None Include="..\images\icon.png" Pack="True" PackagePath="" />
 		<None Include="..\README.md" Pack="True" PackagePath="" />
+		<None Include="..\images\icon.png" Pack="True" PackagePath="" />
+		<ProjectReference Include="..\Laurentiu.Azure.AppService.EasyAuth\Laurentiu.Azure.AppService.EasyAuth.csproj" PrivateAssets="All" />
 	</ItemGroup>
 
-	<Target Name="CopyProjectReferencesToPackage">
+	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
 		<ItemGroup>
-			<TfmSpecificPackageFile Include="$(OutputPath)Laurentiu.Azure.AppService.EasyAuth.dll">
-				<PackagePath>lib/$(TargetFramework)</PackagePath>
-			</TfmSpecificPackageFile>
-			<TfmSpecificPackageFile Include="$(OutputPath)Laurentiu.Azure.AppService.EasyAuth.xml">
-				<PackagePath>lib/$(TargetFramework)</PackagePath>
-			</TfmSpecificPackageFile>
+			<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+			<BuildOutputInPackage Include="$(OutputPath)*.xml" />
 		</ItemGroup>
 	</Target>
 
