@@ -15,4 +15,10 @@
 		<ProjectReference Include="..\Shared\Laurentiu.Azure.AppService.EasyAuth.Sample.Shared.csproj" />
 	</ItemGroup>
 
+	<!-- Use nuget here instead -->
+	<ItemGroup>
+		<ProjectReference Include="..\..\Laurentiu.Azure.AppService.EasyAuth\Laurentiu.Azure.AppService.EasyAuth.csproj" />
+		<ProjectReference Include="..\..\Laurentiu.Azure.AppService.EasyAuth.Web\Laurentiu.Azure.AppService.EasyAuth.Web.csproj" />
+	</ItemGroup>
+
 </Project>

@@ -1,0 +1,11 @@
+﻿@inject NavigationManager Navigation
+
+<AuthorizeView>
+    <Authorized>
+        <a href="authentication/profile">Hello, @context.User.Identity?.Name!</a>
+        <NavLink href="logout">Logout</NavLink>
+    </Authorized>
+    <NotAuthorized>
+        <NavLink href="login">Login</NavLink>
+    </NotAuthorized>
+</AuthorizeView>

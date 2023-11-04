@@ -1,0 +1,31 @@
+﻿@page "/authentication/{action}"
+@page "/authentication/{action}/{state}"
+
+<RemoteAuthenticatorView Action="@Action">
+    <LoggingIn>
+        <h1>Embarking on a secure journey to your data fortress...</h1>
+    </LoggingIn>
+    <LogInFailed>
+        <h1>Oops, it seems you've encountered a security guardian. Please try again.</h1>
+    </LogInFailed>
+    <CompletingLoggingIn>
+        <h1>Access Granted! You've safely breached the security perimeter.</h1>
+    </CompletingLoggingIn>
+    <LogOut>
+        <h1>Safe logout initiated. You're now exiting the secure zone.</h1>
+    </LogOut>
+    <LogOutFailed>
+        <h1>Oops, it seems there's a glitch in the matrix. Log out unsuccessful. Please try again.</h1>
+    </LogOutFailed>
+    <CompletingLogOut>
+        <h1>Log Out Complete! You've gracefully exited the secure zone.</h1>
+    </CompletingLogOut>
+    <LogOutSucceeded>
+        <h1>Log Out Success! You've smoothly exited the secure realm.</h1>
+    </LogOutSucceeded>
+</RemoteAuthenticatorView>
+
+@code {
+    [Parameter] public string? Action { get; set; }
+    [Parameter] public string? State { get; set; }
+}
